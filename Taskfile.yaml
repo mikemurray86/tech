@@ -1,0 +1,16 @@
+version: "3"
+
+silent: true
+
+vars:
+  BASE_URL: '{{ env "BASE_URL" }}'
+
+tasks:
+  build:
+    desc: "the command to build a site"
+    cmds:
+      - hugo --gc --minify --baseURL "{{.BASE_URL}}"
+  clean:
+    desc: remove the build folder
+    cmds:
+      - rm -rf public
